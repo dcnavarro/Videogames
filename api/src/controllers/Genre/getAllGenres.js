@@ -16,8 +16,9 @@ const getAllGenres = async () =>{
         Genre.findOrCreate({
             where: {name:el}
         })
-    })
-    return genre;
+    });
+    const allGenres = await Genre.findAll();
+    return allGenres;
 }
 
 module.exports = {getAllGenres};

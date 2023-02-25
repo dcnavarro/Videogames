@@ -1,7 +1,7 @@
 const {Videogame, Genre} = require('../../db');
 
-const postVideogame = async (id,name,about,platforms,image,releaseDate,rating) =>{
-    const newVideogame = await Videogame.create({
+const postVideogame = async (id,name,about,platforms,image,releaseDate,rating,genreId) =>{
+    let newVideogame = await Videogame.create({
 
             id, 
             name, 
@@ -9,15 +9,18 @@ const postVideogame = async (id,name,about,platforms,image,releaseDate,rating) =
             platforms, 
             image, 
             releaseDate, 
-            rating
+            rating,
 
 })
-return newVideogame;
+    let genreDb = await Genre.findAll({
+    where: {id:genreId}
+    })
+  
+    newVideogame.addGenre(genreDb);
+
+    return newVideogame;
+
 }
-    
-//     let genreDb = Genre.findAll({
-//     where: {name:genre}
-//     })
 
 module.exports = {postVideogame};
 

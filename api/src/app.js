@@ -2,13 +2,17 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
+
 const routes = require('./routes/index.js');
 
 require('./db.js');
 
 const server = express();
+server.use(cors());
 
 server.name = 'API';
+
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));

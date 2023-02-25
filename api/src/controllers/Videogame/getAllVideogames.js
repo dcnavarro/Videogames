@@ -1,9 +1,10 @@
 
-const {getApiInfo} = require ('./getApiInfo');
+// const {getApiInfo} = require ('./getApiInfo');
+const {getApiData} = require('../../controllers/Videogame/getApiData')
 const {getDbInfo} = require ('./getDbInfo');
 
 const getAllVideogames = async () =>{
-    const apiInfo = await getApiInfo();
+    const apiInfo = await getApiData();
     const dbInfo = await getDbInfo();
     const infoTotal = apiInfo.concat(dbInfo);
     return infoTotal;

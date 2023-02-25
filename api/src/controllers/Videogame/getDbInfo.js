@@ -10,8 +10,8 @@ const getDbInfo = async () =>{
                 attributes: [],
             }
         }
-    })
-        };
+    });
+};
 
 
 
