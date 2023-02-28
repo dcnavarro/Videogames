@@ -8,6 +8,7 @@ const Cards = ()=>{
 // mi objetivo es que videogames venga de mi estado global
 // debo implementar el store de redux para que eso suceda
 const videogames = useSelector(state=>state.videogames)
+
     
     return(
         <div className={style.container}>

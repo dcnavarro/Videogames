@@ -22,6 +22,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    //Se puede cambiar a DataTypes.ENUM para verificar que se ingrese una plataforma correcta
     image: {
       type: DataTypes.STRING,
       allowNull: false,

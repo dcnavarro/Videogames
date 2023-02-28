@@ -28,7 +28,7 @@ try{
             })
         }))
 
-        console.log(apiInfo);
+        // console.log(apiInfo);
 
         let allApiInfo = [];
         apiInfo.map(el => {allApiInfo = allApiInfo.concat(el)})

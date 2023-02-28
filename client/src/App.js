@@ -9,9 +9,10 @@ function App() {
     <div className="App">
       {location.pathname !=='/' && <NavBar />}
       <Route exact path = '/' render={()=><Landing />} />  
-      <Route path ='/home' render={()=><Home />} />
-      <Route path ='/detail' render={()=><Detail />} />
-      <Route path ='/create' render={()=><Form />} />
+      <Route exact path ='/home' render={()=><Home />} />
+      <Route exact path ='/:idVideogame' render={(props)=><Detail {...props}/>} />
+      <Route exact path ='/create' render={()=><Form />} />
+      
     </div>
   );
 }

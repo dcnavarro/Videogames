@@ -27,5 +27,3 @@ const searchVideogameByName = async (name) =>{
 
 module.exports = {searchVideogameByName};
 
-//http://localhost:3001/videogames/?name=grand theft
-

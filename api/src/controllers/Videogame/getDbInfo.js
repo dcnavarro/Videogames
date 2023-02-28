@@ -6,9 +6,9 @@ const getDbInfo = async () =>{
         include: {
             model: Genre,
             attributes: ['id', 'name'],
-            through: {
-                attributes: [],
-            }
+            // through: {
+            //     attributes: [],
+            // }
         }
     });
 };
