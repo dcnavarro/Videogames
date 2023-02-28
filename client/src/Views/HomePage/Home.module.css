@@ -1,10 +1,85 @@
-.background{
-    background-color: rgb(47, 48, 51)
+body{
+    background-color: black;
 }
 
-.container{                    
-display: flex;
+.subtitle{
+    position: relative;
+    font-family: fantasy;
+    font-size: 60px;
+    display: flex;
+    color: rgb(218, 233, 14);
+    align-items:start;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    background-color: black;
 }
+/* .container{  
+    position:absolute;
+    top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);  
+    grid-template-columns: auto auto auto ;
+                   */
+    /* padding: 20px;
+    width: 1920px;
+    height: 1080px;
+    
+    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 249, 250);
+    border-radius: 15px;
+    border: 1px solid blueviolet;
+    flex-wrap: wrap; */
+/* 
+      /* padding: 20px;
+  border: 3px solid #999b85;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: 400px;
+  grid-template-rows: 300px;
+   */
+ 
+/* .loaderContainer{
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.834);
+    z-index: 1;
+}
+
+.spinner{
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #3d5af1 transparent #3d5af1 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+
+.filterBar{
+
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    border: 2px solid  rgb(231, 235, 4);
+    border-radius: 5px;
+    font-size: large;
+    position:relative;
+    background-color:  #edeebfd7;
+    font-family: monospace;
+    
+ 
+} 

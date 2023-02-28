@@ -8,11 +8,11 @@ import style from '../LandingPage/Landing.module.css';
 const Landing = () =>{
     return(
         <div className={style.background}>
-        <h1>GamerCloud</h1>
-        <h2>All Gaming Experience is Here</h2>
-        <>Welcome!</>
+        <h1 className={style.title}>GamerCloud</h1>
+        <h2 className={style.subtitles}>All Gaming Experience is Here</h2>
+        <h3 className={style.subtitles}>Welcome!</h3>
         <br></br>
-        <Link to='/home'><button>Let's Start</button></Link>
+        <Link to='/home'><button className={style.button}>Let's Start</button></Link>
         </div>
     )
 }

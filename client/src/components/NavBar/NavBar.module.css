@@ -1,8 +1,35 @@
-.mainContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: rgb(255, 230, 0);
-    border-radius: 15px;
-    border: 1px solid blueviolet;
+
+.nav {
+    flex-direction:column;
+    border: 1px solid black;
+    font-size: large;
+    background-color: #0c0c0c85;
+    position:relative;
+    
 }
+
+.navLinks {
+  font-family: monospace;
+  color: #676859;
+  align-content: center;
+  display: inline-block;
+  justify-content: space-around;
+  font-size: 20px;
+  border-color: #22f806d7;
+  background-color:  #edeebfd7;
+  position: relative;
+  padding-top: 15px;
+  }
+  
+  .navLinks button{
+    width: 40px;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+  }

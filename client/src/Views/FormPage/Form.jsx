@@ -11,7 +11,8 @@
 // [IMPORANTE]: es requisito que el formulario de creación esté validado sólo con JavaScript. Puedes agregar las validaciones que consideres. Por ejemplo: que el nombre del videojuego no pueda contener símbolos, o que el rating no pueda exceder determinado valor, etc.
 
 import { useState, useEffect } from "react";
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import {NavBar} from '../../components/NavBar/NavBar';
 import { getGenres, postVideogame } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -109,6 +110,7 @@ const Form = () =>{
 
     return(
         <div>
+        <NavBar />
         <form onSubmit={submitHandler}>
             <h2>Create your own Videogame!</h2>
             <div>

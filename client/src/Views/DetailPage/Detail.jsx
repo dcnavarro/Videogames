@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+import {NavBar} from '../../components/NavBar/NavBar'
 import { getVideogameDetail } from '../../redux/actions';
 import {useEffect} from 'react';
 // ID.
@@ -29,7 +30,7 @@ const Detail = (props) =>{
     //ver posibilidad de trabajar con la propiedad created in Db en los condicionales
     return(
         <div>
-        <h1>Esta es la vista de Detail</h1>
+        <NavBar />
         {
                 <div>
                 <img alt='Not found' src={eachVideogame.background_image? eachVideogame.background_image : eachVideogame.image} width='350px' height='200px' />

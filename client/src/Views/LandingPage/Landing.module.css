@@ -3,4 +3,38 @@
     background-repeat: no-repeat;
     width: 1920px;
     height: 1080px;
+    background-attachment: scroll;
+}
+
+.title{
+    font-family: fantasy;
+    font-size: 60px;
+    text-align: center;
+    margin-top: -20px;
+    padding-top: 280px;
+
+}
+
+.subtitles{
+    font-family: monospace;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 30px;
+}
+
+.button{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    border-color: blanchedalmond;
+    color: bisque;
+    box-shadow: 2px 4px 10px 4px rgb(37, 37, 37);
+    text-emphasis-color: white;
+    text-decoration-color: blanchedalmond;
+    background-color: #282c2b;
 }

@@ -17,6 +17,8 @@ import {filterVideogamesByGenre, filterVideogamesByOrigin,getVideogames, sortByN
 import {Pagination} from '../../components/Pagination/Pagination';
 import {Link} from 'react-router-dom';
 import {Card} from '../../components/Card/Card';
+import {NavBar} from '../../components/NavBar/NavBar'
+import {SearchBar} from '../../components/SearchBar/SearchBar'
 import style from '../HomePage/Home.module.css';
 
 
@@ -54,9 +56,9 @@ useEffect(()=>{
 },[dispatch]);
     //obtengo los datos de los 100 videogames cuando el componente se monta
     
-function handleClick(event){
-    dispatch(getVideogames(event))
-}
+// function handleClick(event){
+//     dispatch(getVideogames(event))
+// }
 
 function handleFilterGenre(event){
     dispatch(filterVideogamesByGenre(event.target.value))
@@ -79,13 +81,18 @@ function handleSortByRating(event){
 }
 
     return(
+        
+        <div className={style.loaderContainer}>
+
+        {/* <div className={style.spinner}></div> */}
+        <NavBar />
+        <h2 className={style.subtitle}>Gamer Cloud</h2>
+        <SearchBar />
         <div className={style.container}>
         <br></br>
-        <h2>Gamer Cloud</h2>
+        {/* <button onClick={event=>handleClick(event)}>Reset Filters</button> */}
         <br></br>
-        <button onClick={event=>handleClick(event)}>Reset Filters</button>
-        <br></br>
-        <div>
+        <div className={style.filterBar}>
             <br></br>
             <select onChange={event=> handleSortByName(event)}>
                 <option value='Asc'>Sort By Name</option>
@@ -140,7 +147,7 @@ function handleSortByRating(event){
         
         {currentVideogames?.map((el)=>{
             return(
-                <div className ={style.background}>
+                <div>
                     <Link to ={`/${el.id}`}>
                         <Card 
                         key={el.id} 
@@ -155,6 +162,7 @@ function handleSortByRating(event){
         })}
         {/* <Cards />        */}
   
+        </div>
         </div>
     )
 }
