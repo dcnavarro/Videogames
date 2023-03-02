@@ -1,0 +1,7 @@
+.image{
+  background-color: rgba(61, 56, 56, 0);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:right;
+  top:0;
+}

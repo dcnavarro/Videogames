@@ -5,9 +5,12 @@ const NavBar = () =>{
     return(
     <>
     <div className ={style.nav}>
-        <button className={style.navLinks}><Link to='/home' className={style.navLinks}>Home</Link></button>
-        <button className={style.navLinks}><Link to='/create'className={style.navLinks}>Create Videogame</Link> </button>
-        <br></br>      
+        <div className={style.menu}>
+        <Link to='/home' className={style.navLinks}>Home</Link>
+        </div>
+        <div className={style.menu}>
+        <Link to='/create'className={style.navLinks}>Create Videogame</Link>
+        </div>     
     </div>
     </>
     )

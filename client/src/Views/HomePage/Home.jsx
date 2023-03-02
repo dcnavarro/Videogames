@@ -1,16 +1,4 @@
-// SearchBar: un input de búsqueda para encontrar videojuegos por nombre.
-// Sector en el que se vea un listado de cards con los videojuegos. Al iniciar deberá cargar los primeros resultados obtenidos desde la ruta GET /videogames y deberá mostrar su:
-// Imagen.
-// Nombre.
-// Géneros.
-// Cuando se le hace click a una Card deberá redirigir al detalle de ese videojuego específico.
-// Botones/Opciones para filtrar por género, y por si su origen es de la API o de la base de datos (creados por nosotros desde el formulario).
-// Botones/Opciones para ordenar tanto ascendentemente como descendentemente los videojuegos por orden alfabético y por rating.
-// Paginado: el listado de videojuegos se hará por partes. Tu SPA debe contar con un paginado que muestre un total de 15 videojuegos por página.
-// ⚠️ IMPORTANTE: se deben mostrar tanto los videojuegos traidos desde la API como así también los de la base de datos, pero NO está permitido almacenar en la base de datos los videojuegos de la API. Solamente se pueden guardar aquellos creados desde el form.
-// ⚠️ IMPORTANTE: debido a que en la API existen alrededor de 500.000 videojuegos, por cuestiones de performance puedes tomar la simplificación de obtener y paginar los primeros 100 videojuegos.
-
-// import Cards from '../../components/Cards/Cards';
+import {VideogamePurple} from '../../components/VideogamePurple/VideogamePurple';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {filterVideogamesByGenre, filterVideogamesByOrigin,getVideogames, sortByName, sortByRating} from '../../redux/actions';
@@ -23,29 +11,19 @@ import style from '../HomePage/Home.module.css';
 
 
 const Home = () =>{
-    const dispatch = useDispatch()
-    const allVideogames = useSelector((state)=> state.videogames)
-    //obtengo los datos de los 100 videogames del estado
+const dispatch = useDispatch()
+const allVideogames = useSelector((state)=> state.videogames)
 
-// const [videogamesData, setVideogamesData] = useState([]);
 const [order, setOrder] = useState('')
 const [currentPage, setCurrentPage] = useState(1);
 const [videogamesPerPage, setVideogamesPerPage] = useState(15)
-// console.log(videogamesPerPage) //15
+
 console.log(setVideogamesPerPage)
 console.log(order)
-// useEffect(async () =>{
-//     const response = await axios.get(`http://localhost:3001/videogames`
-//     );
-
-//     setVideogamesData(response.data);
-// },[]);
 
 const lastVideogameIndex = currentPage * videogamesPerPage;
 const firstVideogameIndex = lastVideogameIndex - videogamesPerPage;
 const currentVideogames = allVideogames.slice(firstVideogameIndex, lastVideogameIndex);
-// const currentVideogames = videogamesData.slice(firstVideogameIndex, lastVideogameIndex);
-// console.log(currentVideogames)//array con 15 videogames
 
 const pagination = (pageNumber) =>{
     setCurrentPage(pageNumber)
@@ -54,11 +32,6 @@ const pagination = (pageNumber) =>{
 useEffect(()=>{
     dispatch (getVideogames())
 },[dispatch]);
-    //obtengo los datos de los 100 videogames cuando el componente se monta
-    
-// function handleClick(event){
-//     dispatch(getVideogames(event))
-// }
 
 function handleFilterGenre(event){
     dispatch(filterVideogamesByGenre(event.target.value))
@@ -82,15 +55,18 @@ function handleSortByRating(event){
 
     return(
         
-        <div className={style.loaderContainer}>
-
-        {/* <div className={style.spinner}></div> */}
+        <div>
         <NavBar />
+        <div className={style.gray}>
         <h2 className={style.subtitle}>Gamer Cloud</h2>
-        <SearchBar />
-        <div className={style.container}>
+        <h3 >Best gaming website, every gamer should follow. Here you will be able to find amazing and updated information.</h3> 
         <br></br>
-        {/* <button onClick={event=>handleClick(event)}>Reset Filters</button> */}
+        <h3 className={style.body}>Are you an avid gamer? Do you follow multiple websites to fulfil your gaming adventures? Then you are at the right stop! </h3>
+        <br></br>
+        <VideogamePurple />
+        <SearchBar />
+        <div className={style.gray}>
+        <br></br>
         <br></br>
         <div className={style.filterBar}>
             <br></br>
@@ -141,13 +117,12 @@ function handleSortByRating(event){
             videogamesPerPage={videogamesPerPage} 
             pagination={pagination}
             currentPage={currentPage}
-             />
-
-              <br />
+            />
+            <br />
         
         {currentVideogames?.map((el)=>{
             return(
-                <div>
+                <div className={style.gray}>
                     <Link to ={`/${el.id}`}>
                         <Card 
                         key={el.id} 
@@ -160,8 +135,7 @@ function handleSortByRating(event){
             )
 
         })}
-        {/* <Cards />        */}
-  
+        </div>
         </div>
         </div>
     )

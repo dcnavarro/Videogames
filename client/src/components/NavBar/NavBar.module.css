@@ -1,35 +1,22 @@
 
 .nav {
-    flex-direction:column;
-    border: 1px solid black;
+    display: flex;
+    justify-content:flex-end;
+    font-family: monospace;  
     font-size: large;
-    background-color: #0c0c0c85;
-    position:relative;
+    background-color:  #edeebfd7;
+    cursor: pointer;
     
 }
 
+.menu{
+  display: flex;
+  align-items: center;
+  padding: 4px; 
+
+}
+
 .navLinks {
-  font-family: monospace;
   color: #676859;
-  align-content: center;
-  display: inline-block;
-  justify-content: space-around;
-  font-size: 20px;
-  border-color: #22f806d7;
-  background-color:  #edeebfd7;
-  position: relative;
-  padding-top: 15px;
-  }
-  
-  .navLinks button{
-    width: 40px;
-    height: 40px;
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: transparent;
+  font-size:x-large
   }

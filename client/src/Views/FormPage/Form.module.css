@@ -1,0 +1,17 @@
+body{
+    font-family: monospace;
+
+}
+
+.title{
+    font-size: x-large;
+    color: bisque;
+   
+}
+
+.form{
+    display:grid; 
+    align-items: center;
+}
+
+

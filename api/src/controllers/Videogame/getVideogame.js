@@ -14,9 +14,6 @@ await Videogame.findByPk(idVideogame,
             include: {
                 model: Genre,
                 attributes: ['id', 'name'],
-                // through: {
-                // attributes: [],
-                // }
         }}):
 
 (await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`)).data;

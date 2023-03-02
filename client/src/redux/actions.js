@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const GET_VIDEOGAMES = "GET_VIDEOGAMES";
-// const GET_VIDEOGAME = "GET_VIDEOGAME";
 const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_NAME';
 const GET_GENRES = 'GET_GENRES';
 const GET_VIDEOGAME_DETAIL = 'GET_VIDEOGAME_DETAIL';
@@ -52,25 +51,12 @@ const getVideogameDetail = (idVideogame) =>{
 
 const postVideogame = (payload) =>{
     return async function (dispatch){
-        var info = await axios.post(`http://localhost:3001/videogames`, payload);
+        try{var info = await axios.post(`http://localhost:3001/videogames`, payload);
         return info;
+        }catch(error){
+           throw new Error({error: error.message}) 
         }
-    }
-
-// const getVideogame = (idVideogame) =>{
-//     return async function (dispatch){
-//         const apiData = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=694c4b671e6e4c36a6a941959720fc1e`);
-
-//         const videogame = apiData.data.results;
-//         dispatch({type:GET_VIDEOGAME, payload:videogame})
-//     }
-// }
-
-// const filterBySource = () => {
-//     dispatch ({type: FILTER_BY_SOURCE, payload:...})
-// }
-
-
+    }}
 const filterVideogamesByGenre= (payload) =>{
     console.log(payload)
     return{

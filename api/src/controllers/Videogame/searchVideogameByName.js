@@ -1,5 +1,5 @@
 const {Videogame, Genre} = require ('../../db');
-// const {getApiInfo} = require ('./getApiInfo')
+
 const {getApiData} = require('../../controllers/Videogame/getApiData');
 
 const searchVideogameByName = async (name) =>{

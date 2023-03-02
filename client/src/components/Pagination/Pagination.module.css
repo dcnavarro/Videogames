@@ -5,17 +5,16 @@
     margin-top: 1rem;
 }
 
-.pagination button {
+.pagination button:hover {
     width: 40px;
     height: 40px;
-    font-family: inherit;
+    font-family: monospace;
     font-weight: 600;
     font-size: 16px;
     margin: 0 10px;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background: transparent;
+    transition: 1s ease;
     color: #676859;
     border-color: #f4f806d7;
 }

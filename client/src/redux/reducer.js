@@ -38,11 +38,8 @@ const rootReducer = (state=initialState, action)=>{
             }
         case FILTER_BY_GENRE:
             const allVideogames = state.allVideogames
-            // const rawGenres = allVideogames.map(el=>el.genres.map(el=>el.name))
             const genresFiltered = action.payload === "All" ? allVideogames 
             : allVideogames.filter(el => el.genres ? el.genres.map(el=>el.name).toString().split(',').includes(action.payload) : el.Genres.map(el=>el.name).toString().split(',').includes(action.payload)) 
-            console.log(genresFiltered)
-            // console.log(rawGenres)
             return{
                 ...state,
                 videogames: genresFiltered
@@ -111,10 +108,5 @@ const rootReducer = (state=initialState, action)=>{
             };
     }
 }
-
-
-
-
-
 
 export default rootReducer;

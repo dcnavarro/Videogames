@@ -1,5 +1,5 @@
 
-// const {getApiInfo} = require ('./getApiInfo');
+
 const {getApiData} = require('../../controllers/Videogame/getApiData')
 const {getDbInfo} = require ('./getDbInfo');
 

@@ -18,15 +18,9 @@ const postVideogame = async (id,name,about,platforms,image,releaseDate,rating,ge
     })
 
     genreDbFlat = genreDb.map(el=>el.id)
+    console.log(genreDbFlat)
 
-    // const newGenre = await Genre.findAll({
-    // where: {id:genreId}
-    // })
-
-    // console.log(newGenre);
-  
-    newVideogame.addGenre(genreDbFlat);
-    // allVideogames.filter(el => el.genres.map(el=>el.name).toString().split(',').includes(action.payload)) 
+    newVideogame.addGenre(genreId);
 
     return newVideogame;
 

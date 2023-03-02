@@ -1,15 +1,6 @@
-// Este formulario debe ser controlado completamente con JavaScritp. No se pueden utilizar validaciones HTML, ni utilizar librerías especiales para esto. Debe contar con los siguientes campos:
 
-// Nombre.
-// Imagen.
-// Descripción.
-// Plataformas.
-// Fecha de lanzamiento.
-// Rating.
-// Posibilidad de seleccionar/agregar varios géneros en simultáneo.
-// Botón para crear el nuevo videojuego.
-// [IMPORANTE]: es requisito que el formulario de creación esté validado sólo con JavaScript. Puedes agregar las validaciones que consideres. Por ejemplo: que el nombre del videojuego no pueda contener símbolos, o que el rating no pueda exceder determinado valor, etc.
-
+import {VideogameOrange} from '../../components/VideogameOrange/VideogameOrange';
+import style from '../FormPage/Form.module.css';
 import { useState, useEffect } from "react";
 import {useHistory} from 'react-router-dom';
 import {NavBar} from '../../components/NavBar/NavBar';
@@ -35,11 +26,7 @@ const Form = () =>{
         genreId:[],
     })
 
-    useEffect(()=>{
-        dispatch(getGenres())
-    }, [dispatch])
-
-    const [errors, setErrors] = useState({
+        const [errors, setErrors] = useState({
         // id:'',
         // name:'',
         // image:'',
@@ -50,46 +37,31 @@ const Form = () =>{
         // genreId:'[]',   
     })
 
-    const validate = (form)=>{
-        // let errors = {};
-        if(form.name.length<1){
-            // errors.name = 
-            setErrors({...errors, name: 'Videogame name is required'})
-        }else if(form.id.length<1){
-            // errors.id = 
-            setErrors({...errors, id: 'Videogame Id is required'})
-        }else if(form.rating<0.0 || form.rating>10.0){
-            // errors.rating = 
-            setErrors({...errors, rating:'Rating should be more than 0 and less than 11'})
-        }}
-        // return errors
-        // }
-    //     if(regEx.test(form.email)){
-    //         setErrors({...errors, email:''})
-    // aplicar lógica para que el mensaje de error no aparezca con los campos vacíos
-    //     }else{
-    //         setErrors({...errors, email:'Email error'})
-    //     }
-    // }
+    useEffect(()=>{
+        dispatch(getGenres())
+    }, [dispatch])
 
+     
     const changeHandler = (event) =>{
     const property = event.target.name;
     const value = event.target.value;
-    // validate (form)
-    setForm({...form, [property]:value})
-    validate(form)
-    //acá se puede ejecutar validate, para validar cuando hago un cambio 
     
-    //pero atención, porque la demora del setForm hace que la validación vaya atrasada!!
-    //lo soluciono poniendo validate antes de setForm, y pasándole lo mismo que al estado (*)
+    validate({...form, [property]:value})
+    setForm({...form, [property]:value})
     }
 
-    // const handleDelete = (el)=>{
-    //     setForm({
-    //         ...form, 
-    //         genres: form.genres.filter(e => e !== el),
-    // })
-    // }
+    const validate = (form)=>{
+        //Separar los if para poder borrar los mensajes de error - Si es que sí existe la escritura borrar el error .-
+        if(!form.name.length){
+            
+            setErrors({...errors, name: 'Videogame name is required'})
+        }else if(!form.id.length){
+            
+            setErrors({...errors, id: 'Videogame Id is required'})
+        }else if(form.rating<0.0 || form.rating>10.0){
+            
+            setErrors({...errors, rating:'Rating should be more than 0 and less than 11'})
+        }}
 
     const submitHandler = (event) =>{
         event.preventDefault();
@@ -109,10 +81,14 @@ const Form = () =>{
     }
 
     return(
-        <div>
+        <div className={style.title}>
         <NavBar />
         <form onSubmit={submitHandler}>
+            <div>
+            <VideogameOrange />
             <h2>Create your own Videogame!</h2>
+            </div>
+            <div className={style.form}>
             <div>
                 <label>Id: </label>
                 <input placeholder = '[4UUID] Universally unique identifier' type='text' value={form.id} onChange={changeHandler} name='id' />
@@ -145,7 +121,7 @@ const Form = () =>{
                 {errors.rating && <span>{errors.rating}</span>} 
             </div>
             <div>
-                <label>GenreId: </label>
+                <label>Genre Id: </label>
                 <input type='text' value={form.genreId} onChange={changeHandler} name='genreId'  />
             </div>
             <div>
@@ -157,28 +133,11 @@ const Form = () =>{
                     }
                 </select>
             </div>
+            </div>
             <button type='submit'>Create</button>
         </form>
-        {/* {form.genres.map(el=>
-        <div>
-            <p>{el}</p>
-            <button onClick={()=>handleDelete(el)}>X</button>
-        </ div>
-
-        )} */}
         </div>
     )
-}
-
-//Se puede grisar el botón de submit hasta que se completen todos los campos
-
-// Nombre.
-// Imagen.
-// Descripción.
-// Plataformas.
-// Fecha de lanzamiento.
-// Rating.
-// Posibilidad de seleccionar/agregar varios géneros en simultáneo.
-// Botón para crear el nuevo videojuego.
+};
 
 export default Form;

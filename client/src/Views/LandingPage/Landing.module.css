@@ -6,9 +6,10 @@
     background-attachment: scroll;
 }
 
-.title{
+.titleBig{
     font-family: fantasy;
     font-size: 60px;
+    color:#282c2b;
     text-align: center;
     margin-top: -20px;
     padding-top: 280px;
@@ -18,6 +19,7 @@
 .subtitles{
     font-family: monospace;
     font-size: 30px;
+    color:#282c2b;
     letter-spacing: 2px;
     text-align: center;
     margin-top: 20px;

@@ -1,0 +1,32 @@
+body{
+background-color: rgba(61, 56, 56, 0);
+}
+
+.title{
+    font-family: monospace;
+    font-size: large;
+    background-color: rgba(61, 56, 56, 0);
+    top: 200px;
+    margin-bottom: 100px;
+
+}
+
+.title h5{
+    font-size: 15px;
+    left: 50px;
+    right: 50px;
+    text-align: center;
+}
+
+.title button:hover{
+    width: 100px;
+    height: 70px;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1ms;
+    color: #676859;
+    border-color: #f4f806d7;
+}
