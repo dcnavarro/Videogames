@@ -1,13 +1,15 @@
-import {VideogamePurple} from '../../components/VideogamePurple/VideogamePurple';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {filterVideogamesByGenre, filterVideogamesByOrigin,getVideogames, sortByName, sortByRating} from '../../redux/actions';
-import {Pagination} from '../../components/Pagination/Pagination';
 import {Link} from 'react-router-dom';
 import {Card} from '../../components/Card/Card';
-import {NavBar} from '../../components/NavBar/NavBar'
-import {SearchBar} from '../../components/SearchBar/SearchBar'
-import style from '../HomePage/Home.module.css';
+import {StyledHeader, HeaderImage} from '../../components/Styles/Header.styled';
+import { Container } from '../../components/Styles/Container.styled';
+import {Flex} from '../../components/Styles/Flex.styled';
+import {Footer} from '../../components/Footer/Footer';
+import { NavBar } from '../../components/NavBar/NavBar';
+import { SearchBar } from '../../components/SearchBar/SearchBar';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 
 const Home = () =>{
@@ -57,18 +59,21 @@ function handleSortByRating(event){
         
         <div>
         <NavBar />
-        <div className={style.gray}>
-        <h2 className={style.subtitle}>Gamer Cloud</h2>
-        <h3 >Best gaming website, every gamer should follow. Here you will be able to find amazing and updated information.</h3> 
-        <br></br>
-        <h3 className={style.body}>Are you an avid gamer? Do you follow multiple websites to fulfil your gaming adventures? Then you are at the right stop! </h3>
-        <br></br>
-        <VideogamePurple />
+        <Flex>
+        <Container>
+        <StyledHeader>
+        <h1>Gamer Cloud</h1>
+        <HeaderImage src='https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80' alt='' />
+        <h3 >Best gaming website, every gamer should follow. Here you will be able to find amazing and updated information.</h3>
+        <br />
+        <h3>Are you an avid gamer? Do you follow multiple websites to fulfil your gaming adventures? Then you are at the right stop! </h3>    
+        </StyledHeader>
+        </Container>
+        </Flex>
         <SearchBar />
-        <div className={style.gray}>
         <br></br>
         <br></br>
-        <div className={style.filterBar}>
+        <div>
             <br></br>
             <select onChange={event=> handleSortByName(event)}>
                 <option value='Asc'>Sort By Name</option>
@@ -122,7 +127,7 @@ function handleSortByRating(event){
         
         {currentVideogames?.map((el)=>{
             return(
-                <div className={style.gray}>
+                <div>
                     <Link to ={`/${el.id}`}>
                         <Card 
                         key={el.id} 
@@ -135,8 +140,7 @@ function handleSortByRating(event){
             )
 
         })}
-        </div>
-        </div>
+        <Footer />
         </div>
     )
 }

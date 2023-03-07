@@ -1,12 +1,26 @@
-import './App.css';
+// import './App.css';
 import {Home, Landing, Form, Detail} from './Views/index';
 // import NavBar from './components/NavBar/NavBar';
+import {Container} from './components/Styles/Container.styled';
+import {ThemeProvider} from 'styled-components';
+import { GlobalStyles } from './components/Styles/Global.styled';
 import {Route, Switch} from 'react-router-dom';
+
+const theme ={
+  colors:{
+    header: '#fff',
+    body: '#fff',
+    footer: '#eef1f1'
+  }
+}
 
 function App() {
   // const location = useLocation();
   return (
-    <div className="App">
+    
+    <ThemeProvider theme = {theme}>
+    <GlobalStyles />
+    <Container>
       <Switch >
    
       <Route exact path = '/' render={()=><Landing />} />  
@@ -17,7 +31,8 @@ function App() {
     
       </Switch>
       
-    </div>
+    </Container>
+    </ThemeProvider>
   );
 }
 

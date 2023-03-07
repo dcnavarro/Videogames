@@ -1,4 +1,3 @@
-import style from '../Pagination/Pagination.module.css';
 
 const Pagination = ({allVideogames, videogamesPerPage, pagination, currentPage}) =>{
     let pageNumbers = [];
@@ -7,7 +6,7 @@ const Pagination = ({allVideogames, videogamesPerPage, pagination, currentPage})
     } 
 
     return (
-        <div className={style.pagination}>
+        <div>
         <nav>
             {
                 pageNumbers && pageNumbers.map((number)=>{

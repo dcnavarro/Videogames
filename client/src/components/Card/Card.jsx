@@ -1,13 +1,15 @@
-import style from '../Card/Card.module.css';
 
+import { StyledCard } from "../Styles/StyledCard.styled";
 
 const Card = (props)=>{
     return(
-            <div className={style.card}>
+        <StyledCard>
+            <div>
             <img src={props.image} alt="Not found" width='350px' height='200px' />
+            </div>
             <h3>{props.name}</h3>
             <h4>{props.genres}</h4>
-        </div>
+        </StyledCard>
         )
 };
 

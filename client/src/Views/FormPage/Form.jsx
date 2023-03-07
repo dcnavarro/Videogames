@@ -1,11 +1,12 @@
-
-import {VideogameOrange} from '../../components/VideogameOrange/VideogameOrange';
-import style from '../FormPage/Form.module.css';
 import { useState, useEffect } from "react";
 import {useHistory} from 'react-router-dom';
 import {NavBar} from '../../components/NavBar/NavBar';
 import { getGenres, postVideogame } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { StyledForm } from "../../components/Styles/StyledForm";
+import {Container} from '../../components/Styles/Container.styled';
+import { StyledHeader } from "../../components/Styles/Header.styled";
+import {StyledButton} from '../../components/Styles/StyledButton.styled';
 
 const Form = () =>{
 
@@ -81,14 +82,17 @@ const Form = () =>{
     }
 
     return(
-        <div className={style.title}>
+        <div>
         <NavBar />
+        <Container>
+         <StyledForm>
+            <StyledHeader>
         <form onSubmit={submitHandler}>
-            <div>
-            <VideogameOrange />
+           
             <h2>Create your own Videogame!</h2>
-            </div>
-            <div className={style.form}>
+             <img src='https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' alt='' />
+            
+            <div>
             <div>
                 <label>Id: </label>
                 <input placeholder = '[4UUID] Universally unique identifier' type='text' value={form.id} onChange={changeHandler} name='id' />
@@ -134,9 +138,13 @@ const Form = () =>{
                 </select>
             </div>
             </div>
-            <button type='submit'>Create</button>
+            <StyledButton type='submit' bg='#020202b8' color='#fff'>Create</ StyledButton>
         </form>
+        </StyledHeader>
+        </ StyledForm>
+        </Container>
         </div>
+        
     )
 };
 
